@@ -17,7 +17,8 @@ namespace SharedLearning.Controllers
         // GET: TypingChallenges
         public ActionResult Index()
         {
-            return View(db.TypingChallenges.ToList());
+            var viewModel = new TypingChallengeIndexView(db.TypingChallenges.ToList());
+            return View(viewModel);
         }
 
         // GET: TypingChallenges/Details/5

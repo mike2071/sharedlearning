@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SharedLearning.Models.TypingChallenge>
+﻿@model SharedLearning.Models.TypingChallengeIndexView
 
 @{
     ViewBag.Title = "Index";
@@ -6,21 +6,25 @@
 
 <h2>Typing Challenges</h2>
 
+<h3>Average Company Speed: @Model.AverageCompanySpeed</h3>
+
+<h3>Average Company Accuracy: @Model.AverageCompanyAccuracy</h3>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.TypingChallenges.First().Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.WPM)
+            @Html.DisplayNameFor(model => model.TypingChallenges.First().WPM)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Accuracy)
+            @Html.DisplayNameFor(model => model.TypingChallenges.First().Accuracy)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.TypingChallenges) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
